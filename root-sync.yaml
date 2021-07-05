@@ -1,0 +1,14 @@
+apiVersion: configsync.gke.io/v1beta1
+kind: RootSync
+metadata:
+  name: root-sync
+  namespace: config-management-system
+spec:
+  sourceFormat: unstructured
+  git:
+    repo: git@github.com:Minraj1/anthos-config-management-samples.git
+    branch: init
+    dir: quickstart/multirepo/root
+    auth: ssh
+    secretRef:
+      name: minrajsecret
